@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nova Era - Descubra Seu Biotipo</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="icon" type="image/png" href="img/logo_transparente.png">
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+    
+    * {
+        font-family: 'Inter', sans-serif;
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    body {
+        background: linear-gradient(135deg, #0a0a0a 0%, #1a0f00 25%, #000000 50%, #1a0f00 75%, #0a0a0a 100%);
+        background-attachment: fixed;
+        min-height: 100vh;
+    }
+    
+    .gradient-orange {
+        background: linear-gradient(135deg, #FF3D00 0%, #FF6D00 50%, #FF8C00 100%);
+    }
+    
+    .gradient-text {
+        background: linear-gradient(135deg, #FF3D00 0%, #FF8C00 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    .glass-card {
+        background: rgba(20, 20, 20, 0.7);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 61, 0, 0.2);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    }
+    
+    .quiz-card {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
+        border: 2px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .quiz-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(255, 61, 0, 0.5);
+        box-shadow: 0 12px 24px rgba(255, 61, 0, 0.15);
+    }
+    
+    .quiz-card.selected {
+        border-color: #FF3D00;
+        background: rgba(255, 61, 0, 0.1);
+        box-shadow: 0 0 0 3px rgba(255, 61, 0, 0.2);
+    }
+    
+    input[type="range"] {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 8px;
+        border-radius: 5px;
+        background: rgba(255, 255, 255, 0.1);
+        outline: none;
+    }
+    
+    input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: #FF3D00;
+        cursor: pointer;
+        box-shadow: 0 0 12px rgba(255, 61, 0, 0.6);
+        transition: all 0.2s;
+    }
+    
+    input[type="range"]::-webkit-slider-thumb:hover {
+        transform: scale(1.2);
+        box-shadow: 0 0 20px rgba(255, 61, 0, 0.8);
+    }
+    
+    input[type="range"]::-moz-range-thumb {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: #FF3D00;
+        cursor: pointer;
+        border: none;
+        box-shadow: 0 0 12px rgba(255, 61, 0, 0.6);
+    }
+    
+    .progress-bar-fill {
+        transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        background: linear-gradient(90deg, #FF3D00 0%, #FF8C00 100%);
+        box-shadow: 0 0 20px rgba(255, 61, 0, 0.5);
+    }
+    
+    .fade-in {
+        animation: fadeIn 0.5s ease-in;
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .pulse-animation {
+        animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.05); opacity: 0.9; }
+    }
+    
+    .step-indicator {
+        transition: all 0.3s ease;
+    }
+    
+    .step-indicator.active {
+        background: #FF3D00;
+        box-shadow: 0 0 15px rgba(255, 61, 0, 0.6);
+    }
+    
+    .step-indicator.completed {
+        background: #FF8C00;
+    }
+    
+    button {
+        transition: all 0.3s ease;
+    }
+    
+    button:active {
+        transform: scale(0.97);
+    }
+    
+    .result-card {
+        animation: slideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    @keyframes slideUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    input[type="number"], input[type="text"], select {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 61, 0, 0.3);
+        color: white;
+        transition: all 0.3s;
+    }
+    
+    input[type="number"]:focus, input[type="text"]:focus, select:focus {
+        outline: none;
+        border-color: #FF3D00;
+        box-shadow: 0 0 0 3px rgba(255, 61, 0, 0.1);
+        background: rgba(255, 255, 255, 0.08);
+    }
+    
+    @media (max-width: 390px) {
+        .quiz-card {
+            padding: 1rem;
+        }
+    }
+
+   /* Back Button Inline */
+.back-btn-inline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 61, 0, 0.9);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+    border: 2px solid transparent;
+}
+
+.back-btn-inline:hover {
+    background: transparent;
+    border-color: #FF3D00;
+    color: #FF3D00;
+    transform: translateX(-5px);
+}
+
+.back-btn-inline i {
+    font-size: 16px;
+    transition: transform 0.3s ease;
+}
+
+.back-btn-inline:hover i {
+    transform: translateX(-5px);
+}
+
+/* Desktop - botão flutuante */
+@media only screen and (min-width: 768px) {
+    .back-button-wrapper {
+        position: fixed;
+        top: 30px;
+        left: 30px;
+        z-index: 999;
+    }
+    
+    .back-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: linear-gradient(135deg, #FF3D00 0%, #ff5722 100%);
+        color: #fff;
+        padding: 14px 28px;
+        border-radius: 50px;
+        font-size: 16px;
+        font-weight: 600;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(255, 61, 0, 0.3);
+    }
+    
+    .back-btn:hover {
+        background: transparent;
+        border: 2px solid #FF3D00;
+        color: #FF3D00;
+        transform: translateX(-5px);
+    }
+    
+    .back-btn-inline {
+        display: none; /* Esconde no desktop */
+    }
+}
+
+/* Mobile - botão inline */
+@media only screen and (max-width: 767px) {
+    .back-button-wrapper {
+        display: none; /* Esconde o flutuante no mobile */
+    }
+    
+    .breadcrumb-text h2 {
+        margin-top: 10px;
+    }
+}
+</style>
+</head>
+<body class="text-white">
+    <div class="min-h-screen flex flex-col">
+
+
+        <!-- Main Content -->
+        <main class="flex-1 max-w-4xl mx-auto w-full px-4 sm:px-6 py-6 sm:py-12">
+            
+            <!-- Landing Page -->
+            <div id="landing" class="fade-in">
+                <div class="text-center mb-8 sm:mb-12">
+                    
+                    <h2 class="text-3xl sm:text-5xl md:text-6xl font-extrabold mb-4 leading-tight">
+                        Descubra Seu <span class="gradient-text">Biotipo</span><br>e Transforme Seu Corpo
+                    </h2>
+                    <p class="text-base sm:text-lg text-gray-300 max-w-2xl mx-auto mb-8">
+                        Responda 5 perguntas rápidas e receba um diagnóstico completo com plano de treino e dieta personalizado para o seu tipo corporal
+                    </p>
+                    <button onclick="startQuiz()" class="gradient-orange px-8 py-4 rounded-xl font-bold text-lg shadow-lg shadow-orange-500/30 hover:shadow-orange-500/50 pulse-animation">
+                        <i class="fas fa-rocket mr-2"></i>
+                        Começar Teste Grátis
+                    </button>
+                </div>
+
+                <!-- Features -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-12">
+                    <div class="glass-card p-6 rounded-2xl">
+                        <div class="w-12 h-12 gradient-orange rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-bolt text-white text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Rápido e Preciso</h3>
+                        <p class="text-gray-400 text-sm">Apenas 2 minutos para resultado completo com análise científica</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl">
+                        <div class="w-12 h-12 gradient-orange rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-chart-line text-white text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Plano Personalizado</h3>
+                        <p class="text-gray-400 text-sm">Treino e dieta específicos para seu metabolismo e estrutura</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl">
+                        <div class="w-12 h-12 gradient-orange rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-medal text-white text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Baseado em Ciência</h3>
+                        <p class="text-gray-400 text-sm">Metodologia dos 3 somatotipos: Ectomorfo, Mesomorfo e Endomorfo</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Container -->
+            <div id="quiz-container" class="hidden">
+                <!-- Progress Bar -->
+                <div class="mb-8">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="text-sm text-gray-400">Progresso</span>
+                        <span class="text-sm font-semibold text-[#FF3D00]" id="progress-text">1 de 5</span>
+                    </div>
+                    <div class="w-full h-2 bg-white/10 rounded-full overflow-hidden">
+                        <div id="progress-bar" class="progress-bar-fill h-full rounded-full" style="width: 20%"></div>
+                    </div>
+                    <div class="flex justify-between mt-4">
+                        <div class="step-indicator active w-2 h-2 rounded-full bg-white/20" data-step="1"></div>
+                        <div class="step-indicator w-2 h-2 rounded-full bg-white/20" data-step="2"></div>
+                        <div class="step-indicator w-2 h-2 rounded-full bg-white/20" data-step="3"></div>
+                        <div class="step-indicator w-2 h-2 rounded-full bg-white/20" data-step="4"></div>
+                        <div class="step-indicator w-2 h-2 rounded-full bg-white/20" data-step="5"></div>
+                    </div>
+                </div>
+
+                <!-- Question Cards -->
+                <div id="question-container" class="fade-in">
+                    <!-- Questions will be inserted here by JS -->
+                </div>
+
+                <!-- Navigation -->
+                <div class="flex justify-between items-center mt-8 gap-4">
+                    <button id="btn-back" onclick="previousQuestion()" class="px-6 py-3 rounded-xl border border-white/20 hover:border-orange-500/50 transition-all disabled:opacity-30 disabled:cursor-not-allowed">
+                        <i class="fas fa-arrow-left mr-2"></i>
+                        Voltar
+                    </button>
+                    <button id="btn-next" onclick="nextQuestion()" class="gradient-orange px-8 py-3 rounded-xl font-bold shadow-lg shadow-orange-500/30 disabled:opacity-30 disabled:cursor-not-allowed">
+                        Próximo
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Results -->
+            <div id="results" class="hidden">
+                <!-- Results will be inserted here by JS -->
+            </div>
+        </main>
+    </div>
+
+<section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb-bg.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="breadcrumb-text">
+                    <a href="index.html" class="back-btn-inline">
+                        <i class="fa fa-arrow-left"></i> Voltar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Ajuste pra mobile não tampar título */
+@media only screen and (max-width: 767px) {
+    .breadcrumb-section {
+        padding-top: 90px !important; /* Empurra o título pra baixo */
+    }
+    
+    .back-button-wrapper {
+        top: 15px;
+        left: 15px;
+    }
+    
+    .back-btn {
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+    
+    .back-btn span {
+        display: none;
+    }
+}
+</style>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script>
+    // Quiz State
+    let currentQuestion = 0;
+    let answers = {
+        objetivo: null,
+        ganhoMusculo: 3,
+        ganhoGordura: 3,
+        estruturaOssea: 3,
+        genero: null,
+        idade: null
+    };
+
+    // Question Data - Opção 3 Original
+    const questions = [
+        {
+            id: 'objetivo',
+            title: 'Qual é o seu principal objetivo?',
+            subtitle: 'Selecione o objetivo que melhor descreve sua meta atual',
+            type: 'cards',
+            options: [
+                { id: 'emagrecer', label: 'Emagrecer', icon: 'fa-fire' },
+                { id: 'ganhar-massa', label: 'Ganhar Massa', icon: 'fa-dumbbell' },
+                { id: 'definicao', label: 'Definição', icon: 'fa-chart-line' },
+                { id: 'condicionamento', label: 'Condicionamento', icon: 'fa-heartbeat' }
+            ]
+        },
+        {
+            id: 'ganhoMusculo',
+            title: 'Como você descreveria seu ganho de músculo?',
+            subtitle: 'Considere sua experiência típica com treino de força',
+            type: 'slider',
+            min: 1,
+            max: 5,
+            labels: ['Com muita dificuldade', 'Muito facilmente']
+        },
+        {
+            id: 'ganhoGordura',
+            title: 'Como você descreveria seu ganho de gordura?',
+            subtitle: 'Pense em como seu corpo reage à alimentação',
+            type: 'slider',
+            min: 1,
+            max: 5,
+            labels: ['Perco peso fácil', 'Ganho peso fácil']
+        },
+        {
+            id: 'estruturaOssea',
+            title: 'Como você descreveria sua estrutura óssea?',
+            subtitle: 'Observe principalmente seus pulsos e tornozelos',
+            type: 'slider',
+            min: 1,
+            max: 5,
+            labels: ['Pulsos muito finos', 'Pulsos muito largos']
+        },
+        {
+            id: 'personal',
+            title: 'Finalize seu perfil',
+            subtitle: 'Últimas informações para personalizar seu resultado',
+            type: 'form'
+        }
+    ];
+
+    // Biotype Data
+    const biotypes = {
+        ectomorfo: {
+            name: 'Ectomorfo',
+            description: 'Metabolismo acelerado, estrutura fina, dificuldade para ganhar peso',
+            icon: '🏃',
+            characteristics: [
+                'Estrutura óssea fina e ombros estreitos',
+                'Metabolismo muito rápido',
+                'Dificuldade extrema para ganhar massa muscular',
+                'Baixo percentual de gordura natural',
+                'Membros longos e magros'
+            ],
+            training: [
+                'Treino de força com cargas pesadas (6-8 reps)',
+                'Menos volume, mais intensidade',
+                'Descanso de 2-3 minutos entre séries',
+                'Foco em exercícios compostos: agachamento, supino, terra',
+                'Máximo 3-4 treinos por semana para recuperação'
+            ],
+            diet: [
+                'Superávit calórico de 500-700 calorias/dia',
+                'Alta ingestão de carboidratos: 4-5g por kg de peso',
+                'Proteína: 2g por kg de peso',
+                'Refeições frequentes: 6-7 vezes ao dia',
+                'Shakes calóricos entre refeições principais'
+            ]
+        },
+        mesomorfo: {
+            name: 'Mesomorfo',
+            description: 'Estrutura atlética, facilidade para ganhar músculo e perder gordura',
+            icon: '💪',
+            characteristics: [
+                'Estrutura óssea média a larga',
+                'Ombros largos e cintura fina naturalmente',
+                'Facilidade para ganhar massa muscular',
+                'Metabolismo equilibrado',
+                'Responde bem a qualquer tipo de treino'
+            ],
+            training: [
+                'Treino híbrido: força (4-6 reps) + hipertrofia (8-12 reps)',
+                'Volume moderado a alto',
+                'Descanso de 60-90 segundos entre séries',
+                'Combinação de exercícios compostos e isolados',
+                '4-5 treinos por semana para otimizar ganhos'
+            ],
+            diet: [
+                'Superávit calórico moderado de 300-500 calorias/dia',
+                'Carboidratos: 3-4g por kg de peso',
+                'Proteína: 2-2.5g por kg de peso',
+                'Ciclar carboidratos em dias de treino/descanso',
+                '5-6 refeições bem distribuídas ao dia'
+            ]
+        },
+        endomorfo: {
+            name: 'Endomorfo',
+            description: 'Estrutura larga, metabolismo lento, facilidade para ganhar gordura',
+            icon: '🔥',
+            characteristics: [
+                'Estrutura óssea larga e robusta',
+                'Metabolismo naturalmente lento',
+                'Facilidade para ganhar gordura corporal',
+                'Dificuldade para perder peso',
+                'Tendência a reter líquidos'
+            ],
+            training: [
+                'Treino de alta intensidade com supersets e dropsets',
+                'Pausas curtas entre séries: 30-45 segundos',
+                'Incluir HIIT 3-4x por semana',
+                'Volume alto com 12-15 reps por série',
+                '5-6 treinos por semana, combinando força e cardio'
+            ],
+            diet: [
+                'Déficit calórico controlado de 300-400 calorias/dia',
+                'Carboidratos: 2-3g por kg de peso, priorizar integral',
+                'Proteína alta: 2.5-3g por kg de peso',
+                'Gorduras boas: abacate, azeite, oleaginosas',
+                'Jejum intermitente pode ser estratégia eficaz'
+            ]
+        }
+    };
+
+    // Initialize
+    function startQuiz() {
+        document.getElementById('landing').classList.add('hidden');
+        document.getElementById('quiz-container').classList.remove('hidden');
+        renderQuestion();
+    }
+
+    function renderQuestion() {
+        const question = questions[currentQuestion];
+        const container = document.getElementById('question-container');
+        
+        let html = `
+            <div class="glass-card p-6 sm:p-8 rounded-2xl">
+                <div class="mb-6">
+                    <h3 class="text-2xl sm:text-3xl font-bold mb-2">${question.title}</h3>
+                    <p class="text-gray-400">${question.subtitle}</p>
+                </div>
+        `;
+
+        if (question.type === 'cards') {
+            html += '<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">';
+            question.options.forEach(opt => {
+                const selected = answers.objetivo === opt.id ? 'selected' : '';
+                html += `
+                    <div class="quiz-card glass-card p-6 rounded-xl ${selected}" onclick="selectCard('objetivo', '${opt.id}')">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="w-16 h-16 gradient-orange rounded-xl flex items-center justify-center mb-4">
+                                <i class="fas ${opt.icon} text-white text-2xl"></i>
+                            </div>
+                            <h4 class="font-bold text-lg">${opt.label}</h4>
+                        </div>
+                    </div>
+                `;
+            });
+            html += '</div>';
+        } else if (question.type === 'slider') {
+            const value = answers[question.id];
+            html += `
+                <div class="py-8">
+                    <div class="mb-8">
+                        <input type="range" 
+                               id="slider-${question.id}" 
+                               min="${question.min}" 
+                               max="${question.max}" 
+                               value="${value}"
+                               oninput="updateSlider('${question.id}', this.value)"
+                               class="w-full">
+                    </div>
+                    <div class="flex justify-between items-center px-2">
+                        <span class="text-sm text-gray-400">${question.labels[0]}</span>
+                        <div class="px-6 py-2 bg-orange-500/20 border border-orange-500/40 rounded-full">
+                            <span class="text-xl font-bold text-[#FF3D00]" id="value-${question.id}">${value}</span>
+                        </div>
+                        <span class="text-sm text-gray-400">${question.labels[1]}</span>
+                    </div>
+                </div>
+            `;
+        } else if (question.type === 'form') {
+            html += `
+                <div class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Gênero</label>
+                        <div class="grid grid-cols-3 gap-3">
+                            <button onclick="selectGender('masculino')" 
+                                    class="quiz-card glass-card p-4 rounded-xl ${answers.genero === 'masculino' ? 'selected' : ''}">
+                                <i class="fas fa-mars text-2xl mb-2"></i>
+                                <div class="font-medium">Masculino</div>
+                            </button>
+                            <button onclick="selectGender('feminino')" 
+                                    class="quiz-card glass-card p-4 rounded-xl ${answers.genero === 'feminino' ? 'selected' : ''}">
+                                <i class="fas fa-venus text-2xl mb-2"></i>
+                                <div class="font-medium">Feminino</div>
+                            </button>
+                            <button onclick="selectGender('outro')" 
+                                    class="quiz-card glass-card p-4 rounded-xl ${answers.genero === 'outro' ? 'selected' : ''}">
+                                <i class="fas fa-genderless text-2xl mb-2"></i>
+                                <div class="font-medium">Outro</div>
+                            </button>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Idade</label>
+                        <input type="number" 
+                               id="idade-input"
+                               min="16" 
+                               max="80" 
+                               value="${answers.idade || ''}"
+                               onchange="answers.idade = this.value; validateForm();"
+                               placeholder="Digite sua idade"
+                               class="w-full px-4 py-3 rounded-xl">
+                    </div>
+                </div>
+            `;
+        }
+
+        html += '</div>';
+        container.innerHTML = html;
+
+        updateProgress();
+        updateButtons();
+        validateForm();
+    }
+
+    function selectCard(field, value) {
+        answers[field] = value;
+        renderQuestion();
+    }
+
+    function selectGender(gender) {
+        answers.genero = gender;
+        renderQuestion();
+    }
+
+    function updateSlider(field, value) {
+        answers[field] = parseInt(value);
+        document.getElementById(`value-${field}`).textContent = value;
+        validateForm();
+    }
+
+    function updateProgress() {
+        const progress = ((currentQuestion + 1) / questions.length) * 100;
+        document.getElementById('progress-bar').style.width = progress + '%';
+        document.getElementById('progress-text').textContent = `${currentQuestion + 1} de ${questions.length}`;
+        
+        document.querySelectorAll('.step-indicator').forEach((indicator, index) => {
+            indicator.classList.remove('active', 'completed');
+            if (index < currentQuestion) {
+                indicator.classList.add('completed');
+            } else if (index === currentQuestion) {
+                indicator.classList.add('active');
+            }
+        });
+    }
+
+    function updateButtons() {
+        const btnBack = document.getElementById('btn-back');
+        const btnNext = document.getElementById('btn-next');
+        
+        btnBack.disabled = currentQuestion === 0;
+        
+        if (currentQuestion === questions.length - 1) {
+            btnNext.innerHTML = '<i class="fas fa-check-circle mr-2"></i>Ver Resultado';
+        } else {
+            btnNext.innerHTML = 'Próximo<i class="fas fa-arrow-right ml-2"></i>';
+        }
+    }
+
+    function validateForm() {
+        const btnNext = document.getElementById('btn-next');
+        const question = questions[currentQuestion];
+        let isValid = true;
+
+        if (question.type === 'cards' && !answers.objetivo) {
+            isValid = false;
+        } else if (question.type === 'form' && (!answers.genero || !answers.idade)) {
+            isValid = false;
+        }
+
+        btnNext.disabled = !isValid;
+    }
+
+    function nextQuestion() {
+        if (currentQuestion < questions.length - 1) {
+            currentQuestion++;
+            renderQuestion();
+        } else {
+            showResults();
+        }
+    }
+
+    function previousQuestion() {
+        if (currentQuestion > 0) {
+            currentQuestion--;
+            renderQuestion();
+        }
+    }
+
+    function calculateBiotype() {
+        // Algoritmo baseado em somatotipos: pontuação de 1-5
+        // Ectomorfo: baixo músculo, baixo gordura, estrutura fina
+        // Mesomorfo: alto músculo, médio gordura, estrutura média
+        // Endomorfo: médio músculo, alto gordura, estrutura larga
+        
+        const musculo = answers.ganhoMusculo;
+        const gordura = answers.ganhoGordura;
+        const estrutura = answers.estruturaOssea;
+        
+        let ectoScore = (6 - musculo) * 2 + (6 - gordura) + (6 - estrutura) * 1.5;
+        let mesoScore = musculo * 2 + Math.abs(3 - gordura) * 0.5 + estrutura * 1;
+        let endoScore = musculo * 0.5 + gordura * 2 + estrutura * 1.5;
+        
+        if (ectoScore >= mesoScore && ectoScore >= endoScore) {
+            return 'ectomorfo';
+        } else if (mesoScore >= endoScore) {
+            return 'mesomorfo';
+        } else {
+            return 'endomorfo';
+        }
+    }
+
+    function showResults() {
+        const biotypeKey = calculateBiotype();
+        const biotype = biotypes[biotypeKey];
+        
+        document.getElementById('quiz-container').classList.add('hidden');
+        document.getElementById('results').classList.remove('hidden');
+        
+        const resultsHtml = `
+            <div class="result-card">
+                <!-- Diagnóstico Completo -->
+                <div class="glass-card p-6 sm:p-8 rounded-2xl mb-6">
+                    <div class="text-center mb-8">
+                        <div class="inline-block px-4 py-2 bg-green-500/20 border border-green-500/40 rounded-full mb-4">
+                            <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                            <span class="text-sm font-medium text-green-400">Diagnóstico Completo</span>
+                        </div>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold mb-3">
+                            Seu Biotipo é: <span class="gradient-text">${biotype.name}</span>
+                        </h2>
+                        <div class="text-6xl mb-4">${biotype.icon}</div>
+                        <p class="text-gray-300 max-w-2xl mx-auto">${biotype.description}</p>
+                    </div>
+
+                    <!-- Características -->
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                            <div class="w-8 h-8 gradient-orange rounded-lg flex items-center justify-center">
+                                <i class="fas fa-dna text-white text-sm"></i>
+                            </div>
+                            Características do Seu Corpo
+                        </h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            ${biotype.characteristics.map(char => `
+                                <div class="flex items-start gap-3 p-4 bg-white/5 rounded-xl border border-white/10">
+                                    <i class="fas fa-check-circle text-[#FF3D00] mt-1"></i>
+                                    <span class="text-sm text-gray-300">${char}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <!-- Plano de Treino -->
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                            <div class="w-8 h-8 gradient-orange rounded-lg flex items-center justify-center">
+                                <i class="fas fa-dumbbell text-white text-sm"></i>
+                            </div>
+                            Plano de Treino Personalizado
+                        </h3>
+                        <div class="space-y-3">
+                            ${biotype.training.map(train => `
+                                <div class="flex items-start gap-3 p-4 bg-orange-500/5 rounded-xl border border-orange-500/20">
+                                    <i class="fas fa-arrow-right text-[#FF3D00] mt-1"></i>
+                                    <span class="text-sm text-gray-300">${train}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <!-- Plano Alimentar -->
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                            <div class="w-8 h-8 gradient-orange rounded-lg flex items-center justify-center">
+                                <i class="fas fa-utensils text-white text-sm"></i>
+                            </div>
+                            Estratégia Alimentar
+                        </h3>
+                        <div class="space-y-3">
+                            ${biotype.diet.map(diet => `
+                                <div class="flex items-start gap-3 p-4 bg-orange-500/5 rounded-xl border border-orange-500/20">
+                                    <i class="fas fa-arrow-right text-[#FF3D00] mt-1"></i>
+                                    <span class="text-sm text-gray-300">${diet}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <!-- CTA -->
+                    <div class="gradient-orange p-6 sm:p-8 rounded-xl text-center">
+                        <h3 class="text-2xl font-bold mb-3">Quer um Plano Ainda Mais Detalhado?</h3>
+                        <p class="mb-6 text-white/90">Acesse treinos completos, cardápios diários e acompanhamento com IA personalizada</p>
+                        <button onclick="restart()" class="bg-white text-[#FF3D00] px-8 py-3 rounded-xl font-bold hover:bg-gray-100 transition-all">
+                            <i class="fas fa-redo mr-2"></i>
+                            Refazer Teste
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Dados do Quiz -->
+                <div class="glass-card p-6 rounded-2xl">
+                    <h3 class="text-lg font-bold mb-4">Resumo das Suas Respostas</h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                        <div class="text-center p-4 bg-white/5 rounded-xl">
+                            <div class="text-xs text-gray-400 mb-1">Objetivo</div>
+                            <div class="font-semibold text-[#FF3D00]">${questions[0].options.find(o => o.id === answers.objetivo)?.label}</div>
+                        </div>
+                        <div class="text-center p-4 bg-white/5 rounded-xl">
+                            <div class="text-xs text-gray-400 mb-1">Ganho Músculo</div>
+                            <div class="font-semibold text-[#FF3D00]">${answers.ganhoMusculo}/5</div>
+                        </div>
+                        <div class="text-center p-4 bg-white/5 rounded-xl">
+                            <div class="text-xs text-gray-400 mb-1">Ganho Gordura</div>
+                            <div class="font-semibold text-[#FF3D00]">${answers.ganhoGordura}/5</div>
+                        </div>
+                        <div class="text-center p-4 bg-white/5 rounded-xl">
+                            <div class="text-xs text-gray-400 mb-1">Estrutura</div>
+                            <div class="font-semibold text-[#FF3D00]">${answers.estruturaOssea}/5</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        document.getElementById('results').innerHTML = resultsHtml;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function restart() {
+        currentQuestion = 0;
+        answers = {
+            objetivo: null,
+            ganhoMusculo: 3,
+            ganhoGordura: 3,
+            estruturaOssea: 3,
+            genero: null,
+            idade: null
+        };
+        document.getElementById('results').classList.add('hidden');
+        document.getElementById('quiz-container').classList.remove('hidden');
+        renderQuestion();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
+<script>(function(){document.addEventListener("click",function(e){var a=e.target.closest("[data-product-id]");if(!a)return;e.preventDefault();var pid=a.getAttribute("data-product-id");if(pid)parent.postMessage({type:"ecto-artifact-link-click",productId:pid},"*")})})();</script>
+</body>
+</html>

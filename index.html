@@ -1,0 +1,1480 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>NOVA ERA</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/flaticon.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/barfiller.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="icon" type="image/png" href="img/logo_transparente.png">
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Offcanvas Menu Section Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="canvas-close">
+            <i class="fa fa-close"></i>
+        </div>
+        <div class="canvas-search search-switch">
+            <i class="fa fa-search"></i>
+        </div>
+        <nav class="canvas-menu mobile-menu">
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./about-us.html">Sobre</a></li>
+                <li><a href="./services.html">Serviços</a></li>
+                <li><a href="./team.html"></a>Nosso Time</li>
+                <li><a href="./contact.html">Contato</a></li>
+            </ul>
+        </nav>
+        <div id="mobile-menu-wrap"></div>
+    </div>
+    <!-- Offcanvas Menu Section End -->
+
+    <!-- Header Section Begin -->
+    <header class="header-section">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="logo">
+                        <a href="./index.html">
+                            <img src="img/logo_transparente.png" alt="">
+                        </a>
+                    </div>
+                </div>
+               
+    </header>
+    <!-- Header End -->
+
+    <!-- Hero Section Begin -->
+    <section class="hero-section">
+        <div class="hs-slider owl-carousel">
+            <div class="hs-item set-bg" data-setbg="img/hero/hero1.png">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 offset-lg-6">
+                            <div class="hi-text">
+                                <span>SHAPE SEU CORPO</span>
+                                <h1>SEJA <strong>FORTE</strong><br> TREINO PESADO</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hs-item set-bg" data-setbg="img//hero/hero2.png">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 offset-lg-6">
+                            <div class="hi-text">
+                                <span>SHAPE SEU CORPO</span>
+                                <h1>SEJA <strong>FORTE</strong><br> TREINO PESADO</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hero Section End -->
+
+<style>
+/* About Personal Section */
+.about-personal {
+    background: #151515;
+    padding: 100px 0;
+}
+
+.ap-pic {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.ap-pic img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.ap-pic .play-btn {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.play-btn a {
+    display: block;
+    width: 70px;
+    height: 70px;
+    background: #FF3D00;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 70px;
+    color: #fff;
+    font-size: 24px;
+    transition: all 0.3s;
+    box-shadow: 0 0 0 0 rgba(255, 61, 0, 0.7);
+    animation: pulse 2s infinite;
+}
+
+.play-btn a:hover {
+    background: #ff5722;
+    transform: scale(1.1);
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 61, 0, 0.7); }
+    70% { box-shadow: 0 0 0 20px rgba(255, 61, 0, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 61, 0, 0); }
+}
+
+.ap-text .section-title {
+    margin-bottom: 30px;
+}
+
+.ap-stats {
+    display: flex;
+    gap: 40px;
+    margin: 30px 0;
+    padding: 25px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stat-item h3 {
+    color: #FF3D00;
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.stat-item p {
+    color: #c4c4c4;
+    font-size: 14px;
+    margin: 0;
+}
+
+.ap-desc {
+    color: #c4c4c4;
+    line-height: 28px;
+    margin-bottom: 20px;
+}
+
+.ap-features {
+    list-style: none;
+    padding: 0;
+    margin: 30px 0;
+}
+
+.ap-features li {
+    color: #ffffff;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.ap-features li i {
+    color: #FF3D00;
+    margin-right: 12px;
+}
+</style>
+
+
+
+    <!-- ChoseUs Section Begin -->
+    <section class="choseus-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <span>POR QUE NOS ESCOLHER?</span>
+                        <h2>SUPERE SEUS LIMITES</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-sm-12">
+                    <div class="cs-item">
+                        <span class="flaticon-002-dumbell"></span>
+                        <h4>Plano de treinamento profissional</h4>
+                        <p>Treino montado pro seu biotipo, nível e objetivo. Evolução semanal, vídeos de execução e suporte direto pra você sair do platô e construir físico de verdade.</p>
+                    </div>
+                </div>
+               </div>
+            </div>
+        </div>
+    </section>
+    <!-- ChoseUs Section End -->
+
+
+
+    <!-- Banner Section Begin -->
+    <section class="banner-section set-bg" data-setbg="img/banner.png">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="bs-text"><br><br><br><br>
+                        <h2>Descubra Seu Biotipo</h2>
+                        <div class="bt-tips"><b>Responda 5 perguntas rápidas e receba um diagnóstico completo com plano de treino e dieta personalizado para o seu tipo corporal</div></b>
+                <div class="container text-center" style="padding: 60px 0;">
+                    <a href="biotipo.html" class="primary-btn" style="background: #FF3D00; padding: 18px 40px; font-size: 18px; font-weight: 700; border-radius: 50px; color: #fff; text-decoration: none; display: inline-block; box-shadow: 0 10px 30px rgba(255,61,0,0.4); transition: all 0.3s;">DESCUBRA SEU BIOTIPO →</a>
+                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!-- Banner Section End -->
+
+        <!-- About Personal Section Begin -->
+<section class="about-personal spad">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-5 col-md-6">
+                <div class="ap-pic">
+                    <img src="img/gallery/novaera_tratada_05.png" alt="Personal Julien">
+                    <div class="play-btn" id="openVideoModal">
+                        <a href="javascript:void(0);">
+                            <i class="fa fa-play"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7 col-md-6">
+                <div class="ap-text">
+                    <div class="section-title"><br>
+                        <span>Seu Personal</span>
+                        <h2>Julien Mahé</h2>
+                    </div>
+                    <div class="ap-stats">
+                        <div class="stat-item">
+                            <h3>10+</h3>
+                            <p>Anos de Experiência</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>500+</h3>
+                            <p>Alunos Transformados</p>
+                        </div>
+                    </div>
+                    </div>
+
+                    <p class="ap-desc">
+                        Olá, Sou o Julien Mahé, tenho 33 anos e o  esporte sempre foi uma grande paixão na minha vida. Ele me ensinou disciplina, perseverança e a superar os meus próprios limites.
+                    </p>
+                    <p class="ap-desc">
+                         Hoje, minha missão é transmitir esses valores e ajudar cada pessoa a alcançar o seu verdadeiro potencial. Meu objetivo não é apenas entregar um programa de treinamento. Meu objetivo é acompanhar você, motivá-lo e guiá-lo até que alcance os resultados que deseja. Cada pessoa é única. Por isso, desenvolvo programas totalmente personalizados, de acordo com o seu nível, sua rotina, sua disponibilidade e seus objetivos. Com o meu acompanhamento online, você nunca estará sozinho. Avaliamos sua evolução regularmente, ajustamos o treino e a alimentação sempre que necessário, e permaneço ao seu lado para tirar dúvidas e manter você motivado durante toda a sua jornada. Não importa se você está começando agora ou se já treina há anos. Se você está disposto a se dedicar de verdade, eu estou pronto para ajudar você a conquistar a sua melhor versão. Toda grande transformação começa com uma decisão.Tome essa decisão hoje.<br>Bem-vindo à Nova Era. Juntos, vamos construir a melhor versão de você
+                    </p>
+                    <ul class="ap-features">
+                        <li><i class="fa fa-check"></i> Especializado em ganho de massa muscular</li>
+                        <li><i class="fa fa-check"></i> Perda de gordura</li>
+                        <li><i class="fa fa-check"></i> Transformação física</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- About Personal Section End -->
+
+<!-- Video Modal Begin -->
+<div id="videoModal" class="video-modal">
+    <div class="video-modal-content">
+        <span class="video-close">&times;</span>
+        <video id="personalVideo" controls controlsList="nodownload">
+            <source src="video/julien.mp4" type="video/mp4">
+            Seu navegador não suporta vídeo HTML5.
+        </video>
+    </div>
+</div>
+<!-- Video Modal End -->
+
+<style>
+/* Video Modal */
+.video-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    /* Adiciona scroll se precisar */
+    overflow-y: auto;
+}
+
+.video-modal-content {
+    position: relative;
+    margin: 3% auto;
+    width: 90%;
+    max-width: 900px;
+    /* Altura máxima pra não estourar a tela */
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: fadeInScale 0.3s ease;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.video-modal-content video {
+    width: 100%;
+    height: auto;
+    /* Limita altura máxima - ISSO RESOLVE O PROBLEMA */
+    max-height: 80vh;
+    /* Mantém proporção do vídeo */
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 10px 50px rgba(255, 61, 0, 0.3);
+    background: #000;
+}
+
+.video-close {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    z-index: 10000;
+}
+
+.video-close:hover {
+    color: #FF3D00;
+    transform: rotate(90deg);
+}
+
+/* Desktop: Centraliza melhor */
+@media only screen and (min-width: 1024px) {
+    .video-modal-content {
+        margin: 5% auto;
+        max-width: 800px;
+    }
+    
+    .video-modal-content video {
+        max-height: 70vh;
+    }
+}
+
+/* Mobile: Usa tela toda */
+@media only screen and (max-width: 767px) {
+    .video-modal-content {
+        width: 95%;
+        margin: 10% auto;
+        max-height: 85vh;
+    }
+    
+    .video-close {
+        top: -40px;
+        font-size: 35px;
+    }
+}
+
+/* Play Button com animação */
+.ap-pic {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.ap-pic img {
+    width: 100%;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.ap-pic:hover img {
+    transform: scale(1.05);
+    filter: brightness(0.7);
+}
+
+.play-btn {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.play-btn a {
+    display: block;
+    width: 80px;
+    height: 80px;
+    background: #FF3D00;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 80px;
+    color: #fff;
+    font-size: 28px;
+    transition: all 0.3s;
+    box-shadow: 0 0 0 0 rgba(255, 61, 0, 0.7);
+    animation: pulse 2s infinite;
+}
+
+.play-btn a:hover {
+    background: #ff5722;
+    transform: scale(1.15);
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 61, 0, 0.7); }
+    70% { box-shadow: 0 0 0 25px rgba(255, 61, 0, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 61, 0, 0); }
+}    
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const videoModal = document.getElementById('videoModal');
+    const openBtn = document.getElementById('openVideoModal');
+    const closeBtn = document.querySelector('.video-close');
+    const video = document.getElementById('personalVideo');
+
+    // Abrir modal
+    openBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        videoModal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+        video.play(); // Auto play quando abre
+    });
+
+    // Fechar modal
+    function closeVideoModal() {
+        videoModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        video.pause();
+        video.currentTime = 0; // Reseta o vídeo
+    }
+
+    closeBtn.onclick = closeVideoModal;
+
+    // Fechar clicando fora
+    window.onclick = function(e) {
+        if (e.target == videoModal) {
+            closeVideoModal();
+        }
+    };
+
+    // Fechar com ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && videoModal.style.display === 'block') {
+            closeVideoModal();
+        }
+    });
+});
+</script>
+
+    <!-- Pricing Section Begin -->
+    <section class="pricing-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <span>Nossos Planos</span>
+                        <h2>Escolha seu plano</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-md-8">
+                    <div class="ps-item">
+                        <h3>3 MESES</h3>
+                        <div class="pi-price">
+                            <h2>R$ 450</h2>
+                            <span  style="color:#E8310E;font-size:12px;">Escolha o pacote de 3 meses</span>
+                        </div>
+                        <ul>
+                            <li><i class="fa fa-bolt" aria-hidden="true"></i> Perda de peso</li>
+                            <li><i class="fa fa-bolt" aria-hidden="true"></i> Ganhos de massa muscular</li>
+                            <li><i class="fa fa-bolt" aria-hidden="true"></i> Otimização do seu desempenho físico</li>
+                            <li><i class="fa fa-bolt" aria-hidden="true"></i> Acompanhamento personalizado à distância</li>
+                            <li><i class="fa fa-bolt" aria-hidden="true"></i> Orientações adaptadas às suas necessidades específicas</li>
+                        </ul>
+                            <button class="primary-btn pricing-btn buy-btn col-lg-12" 
+                                    data-plano="3 Meses" 
+                                    data-valor="450.00">
+                                Comprar
+                            </button>             
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-8">
+                    <div class="ps-item">
+                        <h3>6 MESES</h3>
+                        <div class="pi-price">
+                            <h2>R$ 900</h2>
+                            <span style="color:#E8310E;font-size:12px;">Escolha o pacote de 6 meses para um acompanhamento completo em sua transformação física.</span></h4>
+                        </div>
+                        <ul>
+                            <li><i class="fa fa-bolt" aria-hidden="true"></i> Perda de peso</li>
+                            <li><i class="fa fa-bolt" aria-hidden="true"></i> Ganhos de massa muscular</li>
+                            <li><i class="fa fa-bolt" aria-hidden="true"></i> Otimização de seu desempenho físico</li>
+                            <li><i class="fa fa-bolt" aria-hidden="true"></i> Acompanhamento personalizado à distância</li>
+                            <li><i class="fa fa-bolt" aria-hidden="true"></i> Orientações adaptadas às suas necessidades específicas </li>
+                            <li><i class="fa fa-bolt" aria-hidden="true"></i> Você contará com um acompanhamento personalizado a longo prazo.</li>
+                        </ul>
+                        <button class="primary-btn pricing-btn buy-btn col-lg-12" 
+                                data-plano="6 Meses" 
+                                data-valor="900.00">
+                            Comprar
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-8">
+                    <div class="ps-item">
+                        <h3>9 MESES</h3>
+                        <div class="pi-price">
+                            <h2>R$ 1350</h2>
+                            <span style="color:#E8310E;font-size:12px;">Escolha o pacote de 9 meses para transformar de forma duradoura seu corpo e seu estilo de vida. Seja para ganhar massa muscular, melhorar sua condição física ou adotar uma rotina saudável, você contará com um acompanhamento personalizado a longo prazo.</span>
+                        </div>
+                        <ul>
+                            <li><i class="fa fa-bolt" aria-hidden="true"></i> Perda de peso</li>
+                            <li><i class="fa fa-bolt" aria-hidden="true"></i> Ganhos de massa muscular</li>
+                            <li><i class="fa fa-bolt" aria-hidden="true"></i> Otimização de seu desempenho físico</li>
+                            <li><i class="fa fa-bolt" aria-hidden="true"></i> Acompanhamento personalizado à distância</li>
+                            <li><i class="fa fa-bolt" aria-hidden="true"></i> Orientações adaptadas às suas necessidades específicas </li>
+                            <li><i class="fa fa-bolt" aria-hidden="true"></i> Você contará com um acompanhamento personalizado a longo prazo.</li>
+                        </ul>
+                        <button class="primary-btn pricing-btn buy-btn col-lg-12" 
+                                data-plano="9 Meses" 
+                                data-valor="1350.00">
+                            Comprar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Pricing Section End -->
+
+    <!-- Gallery Section Begin -->
+    <div class="gallery-section">
+        <div class="gallery">
+            <div class="grid-sizer"></div>
+            <div class="gs-item grid-wide set-bg" data-setbg="img/gallery/novaera_tratada_01.png">
+                <a href="img/gallery/novaera_tratada_01.png" class="thumb-icon image-popup"><i class="fa fa-picture-o"></i></a>
+            </div>
+            <div class="gs-item set-bg" data-setbg="img/gallery/novaera_tratada_02.png">
+                <a href="img/gallery/novaera_tratada_02.png" class="thumb-icon image-popup"><i class="fa fa-picture-o"></i></a>
+            </div>
+            <div class="gs-item set-bg" data-setbg="img/gallery/novaera_tratada_03.png">
+                <a href="img/gallery/novaera_tratada_03.png" class="thumb-icon image-popup"><i class="fa fa-picture-o"></i></a>
+            </div>
+            <div class="gs-item set-bg" data-setbg="img/gallery/novaera_tratada_04.png">
+                <a href="img/gallery/novaera_tratada_04.png" class="thumb-icon image-popup"><i class="fa fa-picture-o"></i></a>
+            </div>
+            <div class="gs-item set-bg" data-setbg="img/gallery/novaera_tratada_05.png">
+                <a href="img/gallery/novaera_tratada_05.png" class="thumb-icon image-popup"><i class="fa fa-picture-o"></i></a>
+            </div>
+            <div class="gs-item grid set-bg" data-setbg="img/gallery/novaera_tratada_06.png">
+                <a href="img/gallery/novaera_tratada_06.png" class="thumb-icon image-popup"><i class="fa fa-picture-o"></i></a>
+            </div>
+             <div class="gs-item grid set-bg" data-setbg="img/gallery/novaera_tratada_07.png">
+                <a href="img/gallery/novaera_tratada_07.png" class="thumb-icon image-popup"><i class="fa fa-picture-o"></i></a>
+            </div>
+        </div>
+    </div>
+    <!-- Gallery Section End -->
+
+<!-- FAQ Section Begin -->
+<section class="faq-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title">
+                    <h2>Perguntas Frequentes</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <div class="faq-accordion-v2">
+                    <div class="faq-card">
+                        <div class="faq-header">
+                            <div class="faq-icon">
+                                <i class="fa fa-question-circle"></i>
+                            </div>
+                            <h5>Quais são os nossos serviços?</h5>
+                            <div class="faq-arrow">
+                                <i class="fa fa-plus"></i>
+                            </div>
+                        </div>
+                        <div class="faq-body">
+                            <p>Ofereçemos programas de treinamento para perda de peso e preparação física.</p>
+                        </div>
+                    </div>
+                    <div class="faq-card">
+                        <div class="faq-header">
+                            <div class="faq-icon">
+                                <i class="fa fa-info-circle"></i>
+                            </div>
+                            <h5>Como é uma sessão?</h5>
+                            <div class="faq-arrow">
+                                <i class="fa fa-plus"></i>
+                            </div>
+                        </div>
+                        <div class="faq-body">
+                            <p>Cada sessão é personalizada de acordo com seus objetivos e inclui exercícios adaptados ao seu nível.</p>
+                        </div>
+                    </div>
+                    <div class="faq-card">
+                        <div class="faq-header">
+                            <div class="faq-icon">
+                                <i class="fa fa-cogs"></i>
+                            </div>
+                            <h5>Quais são os pacotes disponíveis?</h5>
+                            <div class="faq-arrow">
+                                <i class="fa fa-plus"></i>
+                            </div>
+                        </div>
+                        <div class="faq-body">
+                            <p>Ofereço três pacotes de acompanhamento: 3 meses, 6 meses e 9 meses, de acordo com suas necessidades e objetivos.</p>
+                        </div>
+                    </div>
+                    <div class="faq-card">
+                        <div class="faq-header">
+                            <div class="faq-icon">
+                                <i class="fa fa-money"></i>
+                            </div>
+                            <h5>Como recebo meu treino após o pagamento?</h5>
+                            <div class="faq-arrow">
+                                <i class="fa fa-plus"></i>
+                            </div>
+                        </div>
+                        <div class="faq-body">
+                            <p>Assim que o pagamento for recebido, você receberá um e-mail com o link para uma pasta compartilhada no Google Drive, onde encontrará seus treinos em PDF.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- FAQ Section End -->
+
+<style>
+/*---------------------
+  FAQ Section V2
+-----------------------*/
+.faq-section {
+    background: #151515;
+}
+
+.faq-section {
+    background: url('./img/novaerafaq.png') no-repeat center center;
+    background-size: cover;
+}
+
+.faq-accordion-v2 .faq-card {
+    background: #0a0a0a;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.faq-accordion-v2 .faq-card:hover {
+    border-color: #FF3D00;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(255, 61, 0, 0.15);
+}
+
+.faq-accordion-v2 .faq-header {
+    display: flex;
+    align-items: center;
+    padding: 22px 25px;
+    cursor: pointer;
+    position: relative;
+}
+
+.faq-accordion-v2 .faq-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #FF3D00 0%, #ff6e40 100%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    flex-shrink: 0;
+    transition: all 0.3s;
+}
+
+.faq-accordion-v2 .faq-icon i {
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.faq-accordion-v2 .faq-header h5 {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 0;
+    flex: 1;
+}
+
+.faq-accordion-v2 .faq-arrow {
+    width: 35px;
+    height: 35px;
+    background: #1a1a1a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.faq-accordion-v2 .faq-arrow i {
+    color: #FF3D00;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.faq-accordion-v2 .faq-card.active .faq-arrow {
+    background: #FF3D00;
+    transform: rotate(45deg);
+}
+
+.faq-accordion-v2 .faq-card.active .faq-arrow i {
+    color: #ffffff;
+}
+
+.faq-accordion-v2 .faq-body {
+    padding: 0 25px 25px 95px;
+    display: none;
+}
+
+.faq-accordion-v2 .faq-body p {
+    color: #a9a9a9;
+    line-height: 28px;
+    margin-bottom: 0;
+    font-size: 16px;
+}
+
+.faq-accordion-v2 .faq-card.active {
+    border-color: #FF3D00;
+    background: #111111;
+}
+
+.faq-accordion-v2 .faq-card.active .faq-icon {
+    box-shadow: 0 5px 15px rgba(255, 61, 0, 0.4);
+}
+</style>
+
+<!-- Footer Section Begin -->
+<footer class="footer-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Logo e Sobre -->
+            <div class="col-lg-6 col-md-6">
+                <div class="footer-logo-wrap">
+                    <img src="img/logo_transparente.png" alt="Nova Era" class="footer-logo">
+                    <p>
+                        Transforme seu corpo e mente com a Nova Era. 
+                        Treinos que levam você ao próximo nível.
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/nova.era.treino/" target="_blank" rel="noopener">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/5513996711501?text=Olá!%20Vim%20pelo%20site%20da%20Nova%20Era" target="_blank" rel="noopener">
+                            <i class="fa fa-whatsapp"></i>
+                        </a>
+                     </div>
+                </div>
+            </div>
+            
+            <!-- Contato + Newsletter -->
+            <div class="col-lg-6 col-md-6">
+                <div class="footer-widget footer-contact-widget">
+                    <h5>Fale Conosco</h5>
+                    <div class="footer-contact">
+                        <p><i class="fa fa-map-marker"></i> Santos, São Paulo - Brasil</p>
+                        <p><i class="fa fa-phone"></i> (13)99671-1501</p>
+                        <p><i class="fa fa-envelope"></i> nova-era@outlook.fr</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Copyright -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="copyright-text">
+                    <p>
+                        © 2026 Nova Era. Todos os direitos reservados. 
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Footer Section End -->
+
+<!-- Modal Pix -->
+<div id="pixModal" class="pix-modal">
+    <div class="pix-modal-content">
+        <span class="pix-close">&times;</span>
+        <h3>Pague com Pix</h3>
+        <p id="pix-plano-nome">Plano Selecionado</p>
+        <h2 id="pix-valor">R$ 0,00</h2>
+        
+        <div class="pix-qrcode">
+            <img id="pix-qr-img" src="" alt="QR Code Pix" style="width: 250px; height: 250px;">
+        </div>
+        
+        <div class="pix-key-area">
+            <p>Pix Copia e Cola:</p>
+            <div class="pix-key-wrap">
+                <input type="text" id="pix-copia-cola" readonly>
+                <button id="pix-copy-btn"><i class="fa fa-copy"></i> Copiar</button>
+            </div>
+        </div>
+        
+        <div class="pix-instructions">
+            <p><i class="fa fa-info-circle"></i> Após pagar, envie o comprovante no WhatsApp</p>
+            <a href="https://wa.me/5513996711501?text=Olá!%20Acabei%20de%20fazer%20o%20Pix" 
+               target="_blank" 
+               class="whatsapp-btn">
+                <i class="fa fa-whatsapp"></i> Enviar Comprovante
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Background da seção de planos */
+.pricing-section {
+    background: url('../img/nova_era_planos_bg.png') no-repeat center center;
+    background-size: cover;
+    position: relative;
+}
+
+.pricing-section:before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(10, 10, 10, 0.85);
+    content: "";
+}
+
+.pricing-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Destaque do botão comprar */
+.primary-btn.pricing-btn {
+    background: #FF3D00;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.primary-btn.pricing-btn:hover {
+    background: #ff5722;
+    box-shadow: 0 0 25px rgba(255, 61, 0, 0.6);
+    transform: translateY(-2px);
+}
+
+/* Modal Pix */
+.pix-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(8px);
+    overflow-y: auto;
+}
+
+.pix-modal-content {
+    background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+    margin: 3% auto;
+    padding: 40px 35px;
+    border: 1px solid rgba(255, 61, 0, 0.4);
+    border-radius: 20px;
+    width: 90%;
+    max-width: 480px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 0 60px rgba(255, 61, 0, 0.4);
+}
+
+.pix-close {
+    color: #888;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 32px;
+    font-weight: 300;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.pix-close:hover {
+    color: #FF3D00;
+    transform: rotate(90deg);
+}
+
+.pix-modal-content h3 {
+    color: #ffffff;
+    margin-bottom: 8px;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+#pix-plano-nome {
+    color: #FF3D00;
+    font-size: 15px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#pix-valor {
+    color: #ffffff;
+    font-size: 48px;
+    margin: 15px 0 25px;
+    font-weight: 700;
+}
+
+.pix-qrcode {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    display: inline-block;
+    margin: 20px 0;
+}
+
+#pix-qr-canvas {
+    display: block;
+}
+
+.pix-key-area {
+    margin: 25px 0;
+}
+
+.pix-key-area p {
+    color: #c4c4c4;
+    font-size: 13px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.pix-key-wrap {
+    display: flex;
+    gap: 8px;
+}
+
+#pix-copia-cola {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 61, 0, 0.3);
+    color: #ffffff;
+    padding: 14px 15px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-family: monospace;
+}
+
+#pix-copy-btn {
+    background: #FF3D00;
+    border: none;
+    color: #fff;
+    padding: 14px 22px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    white-space: nowrap;
+    font-weight: 600;
+}
+
+#pix-copy-btn:hover {
+    background: #ff5722;
+    box-shadow: 0 0 20px rgba(255, 61, 0, 0.6);
+}
+
+.pix-instructions {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pix-instructions p {
+    color: #999;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.whatsapp-btn {
+    display: inline-block;
+    background: #25D366;
+    color: #fff;
+    padding: 14px 35px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.3s;
+    font-weight: 600;
+}
+
+.whatsapp-btn:hover {
+    background: #20ba5a;
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+}
+
+.pricing-section {
+    background: url('./img/nova_era_planos_bg.png') no-repeat center center;
+    background-size: cover;
+    padding: 100px 0;
+    position: relative;
+}
+
+.pricing-section:before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(10, 10, 10, 0.8);
+    content: "";
+}
+
+.pricing-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Cards dos planos com destaque laranja */
+.pricing-item {
+    background: rgba(20, 20, 20, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 61, 0, 0.2);
+    border-radius: 15px;
+    padding: 40px 30px;
+    transition: all 0.4s;
+}
+
+.pricing-item:hover {
+    border-color: #FF3D00;
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(255, 61, 0, 0.3);
+}
+
+.pricing-item.active {
+    border: 2px solid #FF3D00;
+    box-shadow: 0 0 40px rgba(255, 61, 0, 0.4);
+}
+
+/*---------------------
+  Footer
+-----------------------*/
+.footer-section {
+    background: #0a0a0a;
+    padding: 60px 0 0;
+    border-top: 1px solid rgba(255, 61, 0, 0.15);
+}
+
+.footer-logo-wrap {
+    margin-bottom: 20px;
+}
+
+.footer-logo {
+    height: 60px;
+    width: auto;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 25px rgba(255, 61, 0, 0.5));
+    transition: all 0.3s ease;
+}
+
+.footer-logo:hover {
+    filter: drop-shadow(0 0 35px rgba(255, 61, 0, 0.7));
+    transform: scale(1.05);
+}
+
+.footer-logo-wrap p {
+    color: #c4c4c4;
+    line-height: 26px;
+    margin-bottom: 25px;
+    font-size: 15px;
+    max-width: 400px;
+}
+
+.footer-social a {
+    display: inline-block;
+    height: 42px;
+    width: 42px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 61, 0, 0.3);
+    color: #ffffff;
+    line-height: 42px;
+    text-align: center;
+    border-radius: 50%;
+    margin-right: 12px;
+    transition: all 0.3s;
+    font-size: 16px;
+}
+
+.footer-social a:hover {
+    background: #FF3D00;
+    border-color: #FF3D00;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(255, 61, 0, 0.5);
+}
+
+.footer-contact-widget {
+    text-align: right;
+}
+
+.footer-widget h5 {
+    color: #ffffff;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    font-size: 18px;
+    letter-spacing: 1.5px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.footer-widget h5:after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 3px;
+    width: 50px;
+    background: linear-gradient(90deg, transparent, #FF3D00);
+    content: "";
+}
+
+.footer-contact p {
+    color: #c4c4c4;
+    margin-bottom: 15px;
+    font-size: 15px;
+}
+
+.footer-contact p i {
+    color: #FF3D00;
+    margin-left: 10px;
+    margin-right: 0;
+    width: 18px;
+    font-size: 16px;
+}
+
+.footer-newsletter {
+    margin-top: 30px;
+}
+
+.footer-newsletter h6 {
+    color: #ffffff;
+    font-size: 15px;
+    margin-bottom: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.footer-newsletter form {
+    position: relative;
+    max-width: 350px;
+    margin-left: auto;
+}
+
+.footer-newsletter input {
+    width: 100%;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 61, 0, 0.3);
+    color: #ffffff;
+    padding-left: 20px;
+    padding-right: 55px;
+    border-radius: 30px;
+    font-size: 14px;
+}
+
+.footer-newsletter input::placeholder {
+    color: #777;
+}
+
+.footer-newsletter input:focus {
+    border-color: #FF3D00;
+    outline: none;
+    box-shadow: 0 0 15px rgba(255, 61, 0, 0.2);
+}
+
+.footer-newsletter button {
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    height: 40px;
+    width: 40px;
+    background: linear-gradient(135deg, #FF3D00, #ff5722);
+    border: none;
+    border-radius: 50%;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.footer-newsletter button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 61, 0, 0.6);
+}
+
+.copyright-text {
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 30px 0;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.copyright-text p {
+    color: #888;
+    font-size: 13px;
+    margin: 0;
+}
+
+.copyright-text span {
+    color: #c4c4c4;
+    margin-left: 10px;
+}
+
+/* Responsivo */
+@media only screen and (max-width: 767px) {
+    .footer-section {
+        padding: 50px 0 0;
+    }
+    .footer-logo {
+        height: 50px;
+    }
+    .footer-contact-widget {
+        text-align: left;
+        margin-top: 30px;
+    }
+    .footer-widget h5:after {
+        left: 0;
+        right: auto;
+        background: linear-gradient(90deg, #FF3D00, transparent);
+    }
+    .footer-contact p i {
+        margin-left: 0;
+        margin-right: 10px;
+    }
+    .footer-newsletter form {
+        margin-left: 0;
+        max-width: 100%;
+    }
+}    
+</style>
+
+    <!-- Js Plugins -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/masonry.pkgd.min.js"></script>
+    <script src="js/jquery.barfiller.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>   
+     /*------------------
+    FAQ Accordion V2
+--------------------*/
+$('.faq-header').on('click', function() {
+    var $card = $(this).parent();
+    $card.toggleClass('active');
+    $card.find('.faq-body').slideToggle(300);
+    
+    $('.faq-card').not($card).removeClass('active');
+    $('.faq-card').not($card).find('.faq-body').slideUp(300);
+});   
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  //  const PIX_KEY = "nova-era@outlook.fr"; // Troca aqui
+  //  const PIX_KEY_TYPE = "email"; // email, cpf, cnpj, telefone
+  //  const RECEIVER_NAME = "Julien Mahe";
+  //  const RECEIVER_CITY = "SANTOS";
+
+    const PIX_KEY = "15416441828"; // Só números, sem ponto/traço
+    const PIX_KEY_TYPE = "cpf";
+    const RECEIVER_NAME = "Julien Mahe";
+    const RECEIVER_CITY = "SANTOS";
+
+    const modal = document.getElementById('pixModal');
+    const closeBtn = document.querySelector('.pix-close');
+    const buyBtns = document.querySelectorAll('.buy-btn');
+
+    // CRC16-CCITT padrão Banco Central
+    function crc16ccitt(str) {
+        let crc = 0xFFFF;
+        const polynomial = 0x1021;
+        
+        for (let i = 0; i < str.length; i++) {
+            crc ^= str.charCodeAt(i) << 8;
+            for (let j = 0; j < 8; j++) {
+                if ((crc & 0x8000) !== 0) {
+                    crc = ((crc << 1) ^ polynomial) & 0xFFFF;
+                } else {
+                    crc = (crc << 1) & 0xFFFF;
+                }
+            }
+        }
+        return crc.toString(16).toUpperCase().padStart(4, '0');
+    }
+
+    function gerarPixPayload(valor) {
+        const formatValue = (id, value) => {
+            const size = value.length.toString().padStart(2, '0');
+            return `${id}${size}${value}`;
+        };
+
+        // Monta o Merchant Account Information
+        const gui = formatValue('00', 'BR.GOV.BCB.PIX');
+        const chave = formatValue('01', PIX_KEY);
+        const merchantAccountInfo = formatValue('26', gui + chave);
+
+        // Monta o Additional Data Field
+        const txid = '***'; // Txid padrão quando não informado
+        const additionalData = formatValue('62', formatValue('05', txid));
+
+        // Monta o payload sem CRC
+        let payload = [
+            formatValue('00', '01'),
+            merchantAccountInfo,
+            formatValue('52', '0000'),
+            formatValue('53', '986'),
+            formatValue('54', parseFloat(valor).toFixed(2)),
+            formatValue('58', 'BR'),
+            formatValue('59', RECEIVER_NAME),
+            formatValue('60', RECEIVER_CITY),
+            additionalData,
+            '6304' // CRC16 placeholder
+        ].join('');
+
+        // Calcula e adiciona CRC16
+        const crc = crc16ccitt(payload);
+        return payload + crc;
+    }
+
+    buyBtns.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const plano = this.dataset.plano;
+            const valor = this.dataset.valor;
+            
+            document.getElementById('pix-plano-nome').textContent = `Plano ${plano}`;
+            document.getElementById('pix-valor').textContent = `R$ ${parseFloat(valor).toFixed(2).replace('.', ',')}`;
+            
+            // Gera Pix - sem descrição pra evitar erro
+            const pixPayload = gerarPixPayload(valor);
+            document.getElementById('pix-copia-cola').value = pixPayload;
+            
+            console.log('Payload Pix:', pixPayload);
+            console.log('Tamanho:', pixPayload.length);
+            
+            const qrImg = document.getElementById('pix-qr-img');
+            qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(pixPayload)}`;
+            
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    if (closeBtn) {
+        closeBtn.onclick = () => {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        };
+    }
+
+    window.onclick = (e) => { 
+        if (e.target == modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    };
+
+    const copyBtn = document.getElementById('pix-copy-btn');
+    if (copyBtn) {
+        copyBtn.addEventListener('click', function() {
+            const input = document.getElementById('pix-copia-cola');
+            input.select();
+            navigator.clipboard.writeText(input.value).then(() => {
+                this.innerHTML = '<i class="fa fa-check"></i> Copiado!';
+                setTimeout(() => {
+                    this.innerHTML = '<i class="fa fa-copy"></i> Copiar';
+                }, 2000);
+            });
+        });
+    }
+});
+</script>
+<script>
+$(document).ready(function() {
+    // Inicializa o popup de vídeo
+    $('.video-popup').magnificPopup({
+        type: 'iframe',
+        mainClass: 'mfp-fade',
+        removalDelay: 160,
+        preloader: false,
+        fixedContentPos: false,
+        iframe: {
+            patterns: {
+                youtube: {
+                    index: 'youtube.com/',
+                    id: 'v=',
+                    src: 'https://www.youtube.com/embed/%id%?autoplay=1'
+                }
+            }
+        }
+    });
+});
+</script>
+</body>
+</html>
